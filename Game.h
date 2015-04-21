@@ -25,7 +25,7 @@ struct Weapon
 
 struct Room
 {
-    a;lksdfj;lkasdjf
+
 };
 
 class Game
@@ -37,7 +37,7 @@ class Game
     protected:
     private:
 		void playerSet(int);
-    
+
 };
 
 #endif // GAME_H
