@@ -13,6 +13,7 @@ struct Player
 	int keys;
 	bool hasKey;
 	Weapon weapon;
+	int hitChance;
 
 };
 
@@ -25,7 +26,7 @@ struct Weapon
 
 struct Room
 {
-    a;lksdfj;lkasdjf
+    
 };
 
 class Game
