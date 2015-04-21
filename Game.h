@@ -1,7 +1,15 @@
 #ifndef GAME_H
 #define GAME_H
 
-class PLayer{
+using namespace std;
+
+struct PLayer
+{
+
+};
+
+struct Room
+{
 
 };
 
