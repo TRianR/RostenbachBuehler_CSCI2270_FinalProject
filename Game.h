@@ -25,7 +25,7 @@ struct Weapon
 
 struct Room
 {
-
+    a;lksdfj;lkasdjf
 };
 
 class Game
