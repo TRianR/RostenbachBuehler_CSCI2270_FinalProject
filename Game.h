@@ -1,11 +1,22 @@
 #ifndef GAME_H
 #define GAME_H
 
-using namespace std;
+
+struct Weapon
+{
+	std::string weaponName;
+	int attackPlus;
+	int dodgePlus;
+};
+
+struct Room
+{
+    
+};
 
 struct Player
 {
-	string name;
+	std::string name;
 	int health;
 	int strength;
 	int dodge;
@@ -14,19 +25,8 @@ struct Player
 	bool hasKey;
 	Weapon weapon;
 	int hitChance;
+	Room* location;
 
-};
-
-struct Weapon
-{
-	string weaponName;
-	int attackPlus;
-	int dodgePlus;
-};
-
-struct Room
-{
-    
 };
 
 class Game
