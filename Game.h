@@ -10,7 +10,7 @@ struct PLayer
 
 struct Room
 {
-
+    a;lksdfj;lkasdjf
 };
 
 class Game
