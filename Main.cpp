@@ -7,6 +7,8 @@
 #include "Game.h"
 #include "Game.cpp"
 #include <iostream>
+#include <cstring>
+#include <string>
 using namespace std;
 
 Game G= Game();
@@ -21,7 +23,7 @@ int main()
 	cout<<"Logan is a footbal player for the varsity team. He is a little on the shy side, but is nice to those around him. Logan plays defensive tackle, and yes he lifts."<<endl;
 	cout<<"Kari is head of the cheersquad, she and logan are dating. She is a little stuck up, but always supports logan. She always claims the top of the pyramid."<<endl;
 	cout<<"Jackson has been friends with Kari and logan since first grade. He's a pretty average guy, who doesn't take anything too seriously. Jackson can keep up with Kari in a run, but works out with Logan."<<endl;
-	
+
 	bool happy=false;
 	string cont;
 	string choice;
@@ -45,7 +47,15 @@ int main()
 		{
 			happy=true;
 		}
+<<<<<<< HEAD
+		else
+		{
+			happy=false;
+		}
+
+=======
 		
 		
+>>>>>>> fa368334386af3889c6b5626a61c3ca445b774ca
 	}
 }

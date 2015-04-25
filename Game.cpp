@@ -1,8 +1,11 @@
 #include "Game.h"
+#include <cstring>
+#include <iostream>
 using namespace std;
 
 Game::Game()
 {
+
     //ctor
 }
 
@@ -11,6 +14,7 @@ Game::~Game()
     //dtor
 }
 
+<<<<<<< HEAD
 void printMenu(Player->location){
 	cout<<"1. Search room"<<endl;
 	cout<<"2. Leave room"<<endl;
@@ -25,6 +29,13 @@ void searchRoom(Player->location){
 
 
 void changeRoom(Player->location) {
+=======
+void Game::printMenu() {
+    printMenu();
+}
+
+void printMenu(Player->location) {
+>>>>>>> d2c59c9789dcf76130ff5a89b36fd7196807078c
     if(Room->north != NULL) {
         cout << "N: Go North to "<<Player->location->north.name << endl;
     }
@@ -39,7 +50,7 @@ void changeRoom(Player->location) {
     }
 }
 
-void setPlayer(int charNum) {
+void Game::setPlayer(int charNum) {
     if(charNum == 1) {
         // Football player
         Player.name = "Logan";
@@ -63,25 +74,29 @@ void setPlayer(int charNum) {
     }
 }
 
-void preChoiceStatus(int choice) {
+void Game::preChoiceStatus(int choice) {
     cout << "Player Health: " << Player.health << endl;
     cout << "Attack Damage: " << Player.strength << endl;
     cout << "Dodge Chance: " << Player.dodge << endl;
     cout << "Hit Chance: " << Player.hitChance << endl;
 }
 
-void showStatus(Player) {
+void Game::showStatus(Player) {
     cout << "Player Health: " << Player.health << endl;
     cout << "Attack Damage: " << Weapon.attack + Player.strength << endl;
     cout << "Dodge Chance: " << Weapon.dodgePlus + Player.dodge << endl;
     cout << "Hit Chance: " << Player.hitChance << endl;
     cout << "Number of Potions: " << Player.potions << endl;
     cout << "Number of Keys: " << Player.keys << endl;
-    printMenu();
+    printMenu(Player);
 }
 
+<<<<<<< HEAD
 /*
 int dealDamage(int attack, int hitChance, int enemyHealth) {
+=======
+int Game::dealDamage(int attack, int hitChance, int enemyHealth) {
+>>>>>>> d2c59c9789dcf76130ff5a89b36fd7196807078c
     // Do you hit or miss?
     if(HitOrMiss(hitChance) == false) {
         cout << "You missed!" << endl;
@@ -93,9 +108,9 @@ int dealDamage(int attack, int hitChance, int enemyHealth) {
     }
 }
 
-int takeDamage(int enemyAttack, int dodge, int health) {
+int Game::takeDamage(int enemyAttack, int dodge, int health) {
     // Do you dodge or get hit?
-    if(DodgeOrNot(dodge) == false) {
+    if(HitOrMiss(dodge) == false) {
         cout << "The enemy has attacked you for " << enemyAttack << endl;
         health = health - enemyAttack;
         return health;
@@ -127,4 +142,17 @@ Room* Game::makeMap()
 }
 
 
+<<<<<<< HEAD
 
+=======
+int Game::HitOrMiss(int chance) {
+    // random number between 1 and 10
+    int randomNum = rand() % 10 +1;
+    if(chance <= randomNum) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+>>>>>>> d2c59c9789dcf76130ff5a89b36fd7196807078c
