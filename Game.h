@@ -1,6 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
-
+#include <string>
 
 struct Weapon
 {
@@ -29,21 +29,6 @@ struct Player
 
 };
 
-<<<<<<< HEAD
-struct Weapon
-{
-	string weaponName;
-	int attackPlus;
-	int dodgePlus;
-};
-
-struct Room
-{
-
-};
-
-=======
->>>>>>> 27573df79d443684588efaa1188bfa04d0b0b459
 class Game
 {
     public:
@@ -51,15 +36,14 @@ class Game
         virtual ~Game();
         void setPlayer(int);
         void printMenu();
-        void preChoiceStatus(int choice);
+        void preChoiceStatus(int);
         void showStatus(Player);
-        int dealDamage(int attack, int hitChance, int enemyHealth);
-        int takeDamage(int enemyAttack, dodge, int health);
-        void setPlayer(int);
+        int dealDamage(int, int, int);
+        int takeDamage(int, int, int);
     protected:
     private:
 		void playerSet(int);
-		void printMenu();
+		void printMenu(Player);
 
 };
 
