@@ -14,17 +14,11 @@ Game::~Game()
     //dtor
 }
 
-<<<<<<< HEAD
 void Game::printMenu() {
     printMenu();
 }
 
-void Game::printMenu(Player->location) {
-=======
-<<<<<<< HEAD
-=======
 void printMenu(Player->location) {
->>>>>>> fa368334386af3889c6b5626a61c3ca445b774ca
     if(Room->north != NULL) {
         cout << "N: Go North" << endl;
     }
@@ -94,7 +88,7 @@ int Game::dealDamage(int attack, int hitChance, int enemyHealth) {
 
 int Game::takeDamage(int enemyAttack, int dodge, int health) {
     // Do you dodge or get hit?
-    if(DodgeOrNot(dodge) == false) {
+    if(HitOrMiss(dodge) == false) {
         cout << "The enemy has attacked you for " << enemyAttack << endl;
         health = health - enemyAttack;
         return health;
@@ -104,5 +98,13 @@ int Game::takeDamage(int enemyAttack, int dodge, int health) {
     }
 }
 
-
->>>>>>> e23f72841ec32bde6ef9616e720b4d7aa8dc69ce
+int Game::HitOrMiss(int chance) {
+    // random number between 1 and 10
+    int randomNum = rand() % 10 +1;
+    if(chance <= randomNum) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
