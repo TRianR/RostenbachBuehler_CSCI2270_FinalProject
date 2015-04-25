@@ -14,11 +14,17 @@ Game::~Game()
     //dtor
 }
 
+<<<<<<< HEAD
 void Game::printMenu() {
     printMenu();
 }
 
 void Game::printMenu(Player->location) {
+=======
+<<<<<<< HEAD
+=======
+void printMenu(Player->location) {
+>>>>>>> fa368334386af3889c6b5626a61c3ca445b774ca
     if(Room->north != NULL) {
         cout << "N: Go North" << endl;
     }
@@ -99,3 +105,4 @@ int Game::takeDamage(int enemyAttack, int dodge, int health) {
 }
 
 
+>>>>>>> e23f72841ec32bde6ef9616e720b4d7aa8dc69ce

@@ -46,10 +46,15 @@ int main()
 		{
 			happy=true;
 		}
+<<<<<<< HEAD
 		else
 		{
 			happy=false;
 		}
 
+=======
+		
+		
+>>>>>>> fa368334386af3889c6b5626a61c3ca445b774ca
 	}
 }
