@@ -1,8 +1,11 @@
 #include "Game.h"
+#include <cstring>
+#include <iostream>
 using namespace std;
 
 Game::Game()
 {
+
     //ctor
 }
 
@@ -11,7 +14,11 @@ Game::~Game()
     //dtor
 }
 
-void printMenu(Player->location) {
+void Game::printMenu() {
+    printMenu();
+}
+
+void Game::printMenu(Player->location) {
     if(Room->north != NULL) {
         cout << "N: Go North" << endl;
     }
@@ -26,7 +33,7 @@ void printMenu(Player->location) {
     }
 }
 
-void setPlayer(int charNum) {
+void Game::setPlayer(int charNum) {
     if(charNum == 1) {
         // Football player
         Player.name = "Logan";
@@ -50,24 +57,24 @@ void setPlayer(int charNum) {
     }
 }
 
-void preChoiceStatus(int choice) {
+void Game::preChoiceStatus(int choice) {
     cout << "Player Health: " << Player.health << endl;
     cout << "Attack Damage: " << Player.strength << endl;
     cout << "Dodge Chance: " << Player.dodge << endl;
     cout << "Hit Chance: " << Player.hitChance << endl;
 }
 
-void showStatus(Player) {
+void Game::showStatus(Player) {
     cout << "Player Health: " << Player.health << endl;
     cout << "Attack Damage: " << Weapon.attack + Player.strength << endl;
     cout << "Dodge Chance: " << Weapon.dodgePlus + Player.dodge << endl;
     cout << "Hit Chance: " << Player.hitChance << endl;
     cout << "Number of Potions: " << Player.potions << endl;
     cout << "Number of Keys: " << Player.keys << endl;
-    printMenu();
+    printMenu(Player);
 }
 
-int dealDamage(int attack, int hitChance, int enemyHealth) {
+int Game::dealDamage(int attack, int hitChance, int enemyHealth) {
     // Do you hit or miss?
     if(HitOrMiss(hitChance) == false) {
         cout << "You missed!" << endl;
@@ -79,7 +86,7 @@ int dealDamage(int attack, int hitChance, int enemyHealth) {
     }
 }
 
-int takeDamage(int enemyAttack, int dodge, int health) {
+int Game::takeDamage(int enemyAttack, int dodge, int health) {
     // Do you dodge or get hit?
     if(DodgeOrNot(dodge) == false) {
         cout << "The enemy has attacked you for " << enemyAttack << endl;
