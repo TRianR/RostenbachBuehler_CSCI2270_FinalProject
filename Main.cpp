@@ -10,6 +10,7 @@
 using namespace std;
 
 Game G= Game();
+Room* root=G.makeMap();
 
 int main()
 {
