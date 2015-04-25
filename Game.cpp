@@ -11,20 +11,31 @@ Game::~Game()
     //dtor
 }
 
-<<<<<<< HEAD
-=======
-void printMenu(Player->location) {
+void printMenu(Player->location){
+	cout<<"1. Search room"<<endl;
+	cout<<"2. Leave room"<<endl;
+	
+}
+
+/*
+void searchRoom(Player->location){
+	
+}
+*/
+
+
+void changeRoom(Player->location) {
     if(Room->north != NULL) {
-        cout << "N: Go North" << endl;
+        cout << "N: Go North to "<<Player->location->north.name << endl;
     }
     if(Room->south != NULL) {
-        cout << "S: Go South" << endl;
+        cout << "S: Go South to "<<Player->location->south.name << endl;
     }
     if(Room->east != NULL) {
-        cout << "E: Go East" << endl;
+        cout << "E: Go East to "<<Player->location->east.name << endl;
     }
     if(Room->west != NULL) {
-        cout << "W: Go West" << endl;
+        cout << "W: Go West to "<<Player->location->west.name << endl;
     }
 }
 
@@ -69,6 +80,7 @@ void showStatus(Player) {
     printMenu();
 }
 
+/*
 int dealDamage(int attack, int hitChance, int enemyHealth) {
     // Do you hit or miss?
     if(HitOrMiss(hitChance) == false) {
@@ -92,6 +104,27 @@ int takeDamage(int enemyAttack, int dodge, int health) {
         cout << "The enemy missed! You take no damage!" << endl;
     }
 }
+*/ 
+
+Room* Game::makeMap()
+{
+	Room cons1= new Room;
+	const1.name= "Outside";
+	const1.entMes="You are on the front porch of the house";
+	Room* root=const1;
+	Room const2= new Room;
+	const2.name="Foyer";
+	const2.entMes="You entered the old house. Looking around, you see cobwebs in the corners of the room. It's larger then you thought it would be from the outside.";
+	const1.east=const2;
+	const2.west=const1;
+	Room cons3= new Room;
+	const3.name= "Den";
+	const3.entMes="You stand in a decaying den, with a large fireplace in the far wall.";
+	const2.east=const3;
+	const3.west=const2;
+	
+	return root;
+}
 
 
->>>>>>> e23f72841ec32bde6ef9616e720b4d7aa8dc69ce
+
