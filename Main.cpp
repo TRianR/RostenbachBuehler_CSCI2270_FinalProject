@@ -44,10 +44,7 @@ int main()
 		{
 			happy=true;
 		}
-		else
-		{
-			happy=false;
-		}
+		
 		
 	}
 }
