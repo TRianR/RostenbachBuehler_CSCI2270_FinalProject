@@ -11,7 +11,7 @@ struct Weapon
 
 struct Room
 {
-    
+
 };
 
 struct Player
@@ -49,10 +49,17 @@ class Game
     public:
         Game();
         virtual ~Game();
-        void setPlayer(int)
+        void setPlayer(int);
+        void printMenu();
+        void preChoiceStatus(int choice);
+        void showStatus(Player);
+        int dealDamage(int attack, int hitChance, int enemyHealth);
+        int takeDamage(int enemyAttack, dodge, int health);
+        void setPlayer(int);
     protected:
     private:
 		void playerSet(int);
+		void printMenu();
 
 };
 
