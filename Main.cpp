@@ -14,10 +14,7 @@ using namespace std;
 Game G= Game();
 Room* root=G.makeMap();
 Player* p1= new Player;
-<<<<<<< HEAD
-=======
 
->>>>>>> 3ef335139e8b1d760d13466cdab975ad836d5663
 
 int main()
 {
@@ -52,15 +49,7 @@ int main()
 		{
 			happy=true;
 		}
-<<<<<<< HEAD
-=======
-
-		else
-		{
-			happy=false;
-		}
-
-
->>>>>>> 3ef335139e8b1d760d13466cdab975ad836d5663
 	}
+
+
 }
