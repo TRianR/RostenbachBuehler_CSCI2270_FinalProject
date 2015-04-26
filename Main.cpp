@@ -49,7 +49,12 @@ int main()
 		{
 			happy=true;
 		}
+		else
+		{
+			happy=false;
+		}
 	}
-
-
+	p1->location = root;
+    G.startGame(p1);
 }
+

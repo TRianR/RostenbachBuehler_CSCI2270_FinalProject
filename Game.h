@@ -51,10 +51,11 @@ class Game
         //int takeDamage(int enemyAttack, int dodge, int health);
         Room* makeMap();
         void changeRoom(Player*);
+        void startGame(Player*);
     protected:
     private:
 		void playerSet(int);
-		//void printMenu(Player*);
+		void printMenu(Player);
 
 };
 
