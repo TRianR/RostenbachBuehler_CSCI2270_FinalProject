@@ -48,20 +48,17 @@ class Game
         Player* setPlayer(int);
         void printMenu(Player*);
         void preChoiceStatus(Player*);
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 3ef335139e8b1d760d13466cdab975ad836d5663
         void showStatus(Player*);
         //int dealDamage(int attack, int hitChance, int enemyHealth);
         //int takeDamage(int enemyAttack, int dodge, int health);
         Room* makeMap();
         void changeRoom(Player*);
+        void startGame(Player*);
     protected:
     private:
 		void playerSet(int);
-		//void printMenu(Player*);
+		void printMenu(Player);
 
 };
 

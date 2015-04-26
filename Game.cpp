@@ -15,19 +15,14 @@ Game::~Game()
 }
 
 
-<<<<<<< HEAD
-/*
-void Game::printMenu(Player* p1->location){
-=======
 
 void Game::printMenu(Player* p1){
->>>>>>> 3ef335139e8b1d760d13466cdab975ad836d5663
 	cout<<"1. Search room"<<endl;
 	cout<<"2. Leave room"<<endl;
 	cout<<"3. Show player status"<<endl;
 
 }
-*/
+
 /*
 void searchRoom(Player->location){
 
@@ -147,6 +142,15 @@ Room* Game::makeMap()
 	return root;
 }
 
+void Game::startGame(Player* p1) {
+    cout << p1->location->entMes << endl;
+    cout << "Enter anything to enter the house and begin your journey!" << endl;
+    string input;
+    cin >> input;
+    p1->location = p1->location->east;
+    cout << p1->location->entMes << endl;
+    printMenu(p1);
+}
 
 
 
@@ -161,11 +165,5 @@ int Game::HitOrMiss(int chance) {
         return false;
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-*/
-
-=======
 
 */
->>>>>>> 3ef335139e8b1d760d13466cdab975ad836d5663
