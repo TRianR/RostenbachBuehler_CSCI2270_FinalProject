@@ -156,4 +156,12 @@ int Game::HitOrMiss(int chance) {
         return false;
     }
 }
+<<<<<<< HEAD
 */
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> d2c59c9789dcf76130ff5a89b36fd7196807078c
+>>>>>>> 7b2d9a392b47cf4e7c79c790350ef6ac8e82ae94
+>>>>>>> cb4fe2f44c32b475a818fe92a059c2027491c548
