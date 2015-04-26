@@ -49,7 +49,7 @@ class Game
         void printMenu(Player*);
         void preChoiceStatus(Player*);
         
-        //void showStatus(Player);
+        void showStatus(Player*);
         //int dealDamage(int attack, int hitChance, int enemyHealth);
         //int takeDamage(int enemyAttack, int dodge, int health);
         Room* makeMap();

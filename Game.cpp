@@ -16,7 +16,7 @@ Game::~Game()
 
 
 
-void Game::printMenu(Player* p1->location){
+void Game::printMenu(Player* p1){
 	cout<<"1. Search room"<<endl;
 	cout<<"2. Leave room"<<endl;
 	cout<<"3. Show player status"<<endl;
@@ -30,7 +30,7 @@ void searchRoom(Player->location){
 */
 
 
-void Game::changeRoom(Player* p1->location) {
+void Game::changeRoom(Player* p1) {
 
     if(p1->location->north != NULL) {
         cout << "N: Go North to "<<p1->location->north->name << endl;
@@ -90,7 +90,7 @@ void Game::showStatus(Player* p1) {
     cout << "Hit Chance: " << p1->hitChance << endl;
     //cout << "Number of Potions: " << p1->potions << endl;
     //cout << "Number of Keys: " << p1->keys << endl;
-    printMenu(Player);
+    printMenu(p1);
 }
 
 
@@ -124,7 +124,7 @@ int Game::takeDamage(int enemyAttack, int dodge, int health) {
 
 Room* Game::makeMap()
 {
-	Room* cons1= new Room;
+	Room* const1= new Room;
 	const1->name= "Outside";
 	const1->entMes="You are on the front porch of the house";
 	Room* root=const1;
@@ -133,7 +133,7 @@ Room* Game::makeMap()
 	const2->entMes="You entered the old house. Looking around, you see cobwebs in the corners of the room. It's larger then you thought it would be from the outside.";
 	const1->east=const2;
 	const2->west=const1;
-	Room* cons3= new Room;
+	Room* const3= new Room;
 	const3->name= "Den";
 	const3->entMes="You stand in a decaying den, with a large fireplace in the far wall.";
 	const2->east=const3;
@@ -156,12 +156,5 @@ int Game::HitOrMiss(int chance) {
         return false;
     }
 }
-<<<<<<< HEAD
-*/
-=======
-<<<<<<< HEAD
 
-=======
->>>>>>> d2c59c9789dcf76130ff5a89b36fd7196807078c
->>>>>>> 7b2d9a392b47cf4e7c79c790350ef6ac8e82ae94
->>>>>>> cb4fe2f44c32b475a818fe92a059c2027491c548
+*/
