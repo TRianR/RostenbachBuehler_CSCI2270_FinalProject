@@ -15,8 +15,13 @@ Game::~Game()
 }
 
 
+<<<<<<< HEAD
 /*
 void Game::printMenu(Player* p1->location){
+=======
+
+void Game::printMenu(Player* p1){
+>>>>>>> 3ef335139e8b1d760d13466cdab975ad836d5663
 	cout<<"1. Search room"<<endl;
 	cout<<"2. Leave room"<<endl;
 	cout<<"3. Show player status"<<endl;
@@ -157,5 +162,10 @@ int Game::HitOrMiss(int chance) {
     }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 */
 
+=======
+
+*/
+>>>>>>> 3ef335139e8b1d760d13466cdab975ad836d5663
