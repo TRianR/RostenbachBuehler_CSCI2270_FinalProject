@@ -20,29 +20,8 @@ void Game::printMenu(Player* p1){
 	cout<<"2. Leave room"<<endl;
 	cout<<"3. Show player status"<<endl;
 	cout<<"4. Take potion"<<endl;
-<<<<<<< HEAD
-	cout<<"Q. Quit game"<< endl;
+	cout<<"5. Quit" << endl;
     cout << "========================================" << endl;
-	string option;
-	cin>>option;
-    if(option=="1")
-    {
-        searchRoom(p1);
-    }
-    else if(option=="2")
-    {
-        changeRoom(p1);
-    }
-    else if(option=="3")
-    {
-        showStatus(p1);
-    }
-    else if(option=="4")
-    {
-        takePotion(p1);
-    }
-=======
-	cout<<"5. Quit"<<endl;
 	string option;
 	cin>>option;
 	if(option=="1")
@@ -71,9 +50,6 @@ void Game::printMenu(Player* p1){
 		cout<<"Please choose an option on the menu"<<endl;
 		printMenu(p1);
 	}
-
-
->>>>>>> 61cf7eb7c8e2d07c91ccec33947b97915b77143c
 }
 
 void Game::addWeapon(Player* p1){
@@ -145,10 +121,6 @@ void Game::changeRoom(Player* p1) {
 	printMenu(p1);
 }
 
-void Game::doBattle(Player *p1) {
-
-}
-
 Player* Game::setPlayer(int charNum) {
     Player* p1=new Player;
 
@@ -194,6 +166,7 @@ void Game::preChoiceStatus(Player* p1) {
 void Game::showStatus(Player* p1) {
     cout << "========================================" << endl;
     cout << "Player Name: " << p1->name << endl;
+    cout << "Room: " << p1->location->name << endl;
     cout << "Player Health: " << p1->health << endl;
     cout << "Attack Damage: " << p1->attack + p1->strength << endl;
     cout << "Dodge Chance: " << p1->dodgeTrue << endl;
@@ -210,8 +183,8 @@ int Game::dealDamage(Player* p1, Monster* m1) {
         cout << "You missed!" << endl;
     }
     else{
-        cout << "You hit for " << p1->attack << endl;
-        m1->MonHealth=m1->MonHealth-p1->attack;
+        cout << "You hit for " << p1->attack + p1->strength << endl;
+        m1->MonHealth=m1->MonHealth-p1->attack-p1->strength ;
         cout<<p1->location->bossName<<"'s health is "<<m1->MonHealth<<endl;
     }
     return 1;
@@ -306,7 +279,7 @@ bool Game::HitOrMiss(int chance) {
 void Game::doBattle(Player* p1)
 {
 	Monster* m1= MakeMonster(p1);
-	while(m1->MonHealth!=0 || p1->health!=0)
+	while(m1->MonHealth>0 && p1->health>0)
 	{
 		cout<<"1. Attack"<<endl;
 		cout<<"2. Take Potion"<<endl;
@@ -320,13 +293,12 @@ void Game::doBattle(Player* p1)
 		{
 			takePotion(p1);
 		}
-		
+
 		if(m1->MonHealth!=0)
 		{
 			takeDamage(p1, m1);
 		}
 	}
-	
 	if(p1->health==0)
 	{
 		cout<<"You died."<<endl;

@@ -55,10 +55,6 @@ int main()
 		}
 	}
 	p1->location = root;
-<<<<<<< HEAD
-    G.startGame(p1, m1);
-=======
     G.startGame(p1);
->>>>>>> 61cf7eb7c8e2d07c91ccec33947b97915b77143c
 }
 
