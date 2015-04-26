@@ -15,8 +15,16 @@ Game::~Game()
 }
 
 
+<<<<<<< HEAD
 
 void Game::printMenu(Player* p1){
+=======
+
+
+
+void Game::printMenu(Player* p1){
+
+>>>>>>> e9d46bf72bb0db1319570b7511ab849b7bb903cd
 	cout<<"1. Search room"<<endl;
 	cout<<"2. Leave room"<<endl;
 	cout<<"3. Show player status"<<endl;
@@ -40,8 +48,29 @@ void Game::printMenu(Player* p1){
 =======
 >>>>>>> 3ff06fff14b44859d77696c255e90c46089c56d3
 
+	string option;
+	cin>>option;
+	if(option=="1")
+	{
+		cout<<"search"<<endl;
+	}
+	else if(option=="2")
+	{
+		changeRoom(p1);
+	}
+	else
+	{
+		showStatus(p1);
+	}
+	
 }
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> e9d46bf72bb0db1319570b7511ab849b7bb903cd
 /*
 void searchRoom(Player->location){
 
@@ -210,5 +239,13 @@ int Game::HitOrMiss(int chance) {
         return false;
     }
 }
+<<<<<<< HEAD
 
 */
+=======
+
+*/
+
+
+
+>>>>>>> e9d46bf72bb0db1319570b7511ab849b7bb903cd

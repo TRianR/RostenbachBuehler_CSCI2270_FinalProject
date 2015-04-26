@@ -48,7 +48,10 @@ class Game
         Player* setPlayer(int);
         void printMenu(Player*);
         void preChoiceStatus(Player*);
+<<<<<<< HEAD
 
+=======
+>>>>>>> e9d46bf72bb0db1319570b7511ab849b7bb903cd
         void showStatus(Player*);
         //int dealDamage(int attack, int hitChance, int enemyHealth);
         //int takeDamage(int enemyAttack, int dodge, int health);
