@@ -22,24 +22,38 @@ void Game::printMenu(Player* p1){
 	cin>>option;
 	if(option=="1")
 	{
-		cout<<"search"<<endl;
+		searchRoom(p1);
 	}
 	else if(option=="2")
 	{
 		changeRoom(p1);
 	}
-	else
+	else 
 	{
 		showStatus(p1);
 	}
 
 }
 
-/*
-void searchRoom(Player->location){
 
+void searchRoom(Player* p1){
+	if( p1->location->hasWeapon==true)
+	{
+		addWeapon(p1);
+		p1->location->hasWeapon=false;
+	}
+	else if(p1->location->hasPotion==true)
+	{
+		p1->potions++;
+		p1->location->hasPotion=false;
+	}
+	else
+	{
+		cout<<"You searched and didn't find anything"<<endl;
+	}
+	printMenu();
 }
-*/
+
 
 
 void Game::changeRoom(Player* p1) {
@@ -169,16 +183,21 @@ Room* Game::makeMap()
 	Room* const2= new Room;
 	const2->name="Foyer";
 	const2->entMes="You entered the old house. Looking around, you see cobwebs in the corners of the room. It's larger then you thought it would be from the outside.";
+	const2->hasPotion=true;
 	const1->east=const2;
 	const2->west=const1;
 	Room* const3= new Room;
 	const3->name= "Den";
 	const3->entMes="You stand in a decaying den, with a large fireplace in the far wall.";
+	const3->weaponName="Rusty Sword";
+	const3->hasWeapon=true;
 	const2->east=const3;
 	const3->west=const2;
 	Room* const4= new Room;
 	const4->name= "Boss room";
 	const4->entMes="You wake up in a stone walled room. Infront of you is a ghoul! Fight it off!";
+	const4->bossName= "Ghastly Ghoul";
+	const4->hasMonster=true;
 	const3->south= const4;
 
 	return root;
@@ -207,6 +226,6 @@ int Game::HitOrMiss(int chance) {
         return false;
     }
 }
-<<<<<<< HEAD
+
 
 */

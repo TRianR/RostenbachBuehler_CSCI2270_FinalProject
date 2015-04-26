@@ -3,20 +3,17 @@
 #include <string>
 
 
-/*
 
-struct Weapon
-{
-	std::string weaponName;
-	int attackPlus;
-	int dodgePlus;
-};
-* */
 
 struct Room
 {
 	std::string name;
 	std::string entMes;
+	std::string bossName;
+	std::string weaponName;
+	bool hasWeapon;
+	bool hasPotion;
+	bool hasMonster;
 	Room* north;
 	Room* east;
 	Room* south;
@@ -30,8 +27,9 @@ struct Player
 	int health;
 	int strength;
 	int dodge;
-	//int potions;
-	//Weapon weapon;
+	int potions;
+	std::string weaponName;
+	
 	int hitChance;
 	Room* location;
 
@@ -52,6 +50,8 @@ class Game
         Room* makeMap();
         void changeRoom(Player*);
         void startGame(Player*);
+        void searchRoom(Player*);
+        void doBattle(Player*
     protected:
     private:
 		void playerSet(int);
