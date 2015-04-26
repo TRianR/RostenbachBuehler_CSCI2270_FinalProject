@@ -18,6 +18,7 @@ void Game::printMenu(Player* p1){
 	cout<<"1. Search room"<<endl;
 	cout<<"2. Leave room"<<endl;
 	cout<<"3. Show player status"<<endl;
+	cout<<"4. Take potion"<<endl;
 	string option;
 	cin>>option;
 	if(option=="1")
@@ -28,10 +29,15 @@ void Game::printMenu(Player* p1){
 	{
 		changeRoom(p1);
 	}
-	else
+	else if(option=="3")
 	{
 		showStatus(p1);
 	}
+	else if(option=="4")
+	{
+	    takePotion(p1);
+	}
+
 
 }
 
@@ -122,15 +128,23 @@ void Game::preChoiceStatus(Player* p1) {
 }
 
 void Game::showStatus(Player* p1) {
+    cout << "========================================" << endl;
     cout << "Player Health: " << p1->health << endl;
-    //cout << "Attack Damage: " << Weapon.attack + p1->strength << endl;
-    //cout << "Dodge Chance: " << Weapon.dodgePlus + p1->dodge << endl;
+    cout << "Attack Damage: " << p1->attack << endl;
+    cout << "Dodge Chance: " << p1->dodgeTrue << endl;
     cout << "Hit Chance: " << p1->hitChance << endl;
-    //cout << "Number of Potions: " << p1->potions << endl;
-    //cout << "Number of Keys: " << p1->keys << endl;
+    cout << "Number of Potions: " << p1->potions << endl;
+    cout << "Weapon Name: " << p1->weaponName<< endl;
+    cout << "========================================" << endl;
     printMenu(p1);
 }
 
+void Game::addWeapon(Player* p1){
+    p1->attack = p1->attack + 10;
+    cout << "You have picked up a  " << p1->location->weaponName << "!" << endl << "You increase your attack by 10!" << endl;
+    p1->weapon = p1->location->weaponName;
+    printMenu(p1);
+}
 
 /*
 
@@ -180,17 +194,38 @@ Room* Game::makeMap()
 	return root;
 }
 
-void Game::startGame(Player* p1) {
+void Game::MakeMonster(Player *p1, Monster *m1) {
+    m1->MonAttack = (p1->health *3);
+    m1->MonHealth = (p1->strength *3);
+}
+
+void Game::startGame(Player* p1, Monster* m1) {
     cout << p1->location->entMes << endl;
     cout << "Enter anything to enter the house and begin your journey!" << endl;
     string input;
     cin >> input;
     p1->location = p1->location->east;
     cout << p1->location->entMes << endl;
+
+    // Initialize monster
+    MakeMonster(p1, m1);
     printMenu(p1);
 }
 
-
+void Game::takePotion(Player* p1) {
+    if(p1->potions == 0) {
+        cout <<"You have no potions left!" << endl;
+        printMenu(p1);
+    }
+    else{
+        cout << "You're health went from " << p1->health;
+        p1->health = p1->health +50;
+        p1->potions = p1->potions - 1;
+        cout << " to " << p1->health << "!" << endl;
+        cout << "You have " << p1->potions << " left." << endl;
+        printMenu(p1);
+    }
+}
 
 /*
 int Game::HitOrMiss(int chance) {

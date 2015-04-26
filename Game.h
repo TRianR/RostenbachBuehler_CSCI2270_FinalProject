@@ -2,17 +2,6 @@
 #define GAME_H
 #include <string>
 
-
-/*
-
-struct Weapon
-{
-	std::string weaponName;
-	int attackPlus;
-	int dodgePlus;
-};
-* */
-
 struct Room
 {
 	std::string name;
@@ -30,16 +19,20 @@ struct Player
 	int health;
 	int strength;
 	int dodge;
-	//int potions;
-	//int keys;
-	//bool hasKey;
+	int potions = 3;
+	int attack;
+	int dodgeTrue;
+	std::string weapon;
 	//Weapon weapon;
 	int hitChance;
 	Room* location;
 
 };
 
-
+struct Monster {
+    int MonHealth;
+    int MonAttack;
+};
 class Game
 {
     public:
@@ -49,15 +42,18 @@ class Game
         void printMenu(Player*);
         void preChoiceStatus(Player*);
         void showStatus(Player*);
+        void takePotion(Player*);
+        void addWeapon(Player*);
         //int dealDamage(int attack, int hitChance, int enemyHealth);
         //int takeDamage(int enemyAttack, int dodge, int health);
         Room* makeMap();
         void changeRoom(Player*);
-        void startGame(Player*);
+        void startGame(Player* , Monster*);
+        void MakeMonster(Player* , Monster*);
     protected:
     private:
 		void playerSet(int);
-		void printMenu(Player);
+		//void printMenu(Player);
 
 };
 
