@@ -15,11 +15,17 @@ Game::~Game()
 }
 
 
+<<<<<<< HEAD
+/*
+void Game::printMenu(Player* p1->location){
+=======
 
 void Game::printMenu(Player* p1){
+>>>>>>> 3ef335139e8b1d760d13466cdab975ad836d5663
 	cout<<"1. Search room"<<endl;
 	cout<<"2. Leave room"<<endl;
 	cout<<"3. Show player status"<<endl;
+<<<<<<< HEAD
 	string option;
 	cin>>option;
 	if(option=="1")
@@ -36,10 +42,14 @@ void Game::printMenu(Player* p1){
 	}
 	
 }
+=======
+>>>>>>> 3ff06fff14b44859d77696c255e90c46089c56d3
 
+}
+*/
 /*
 void searchRoom(Player->location){
-	
+
 }
 */
 
@@ -88,7 +98,7 @@ void Game::changeRoom(Player* p1) {
 
 Player* Game::setPlayer(int charNum) {
     Player* p1=new Player;
-    
+
     if(charNum == 1) {
         // Football player
         p1->name = "Logan";
@@ -160,7 +170,7 @@ int Game::takeDamage(int enemyAttack, int dodge, int health) {
         cout << "The enemy missed! You take no damage!" << endl;
     }
 }
-*/ 
+*/
 
 Room* Game::makeMap()
 {
@@ -178,7 +188,7 @@ Room* Game::makeMap()
 	const3->entMes="You stand in a decaying den, with a large fireplace in the far wall.";
 	const2->east=const3;
 	const3->west=const2;
-	
+
 	return root;
 }
 
@@ -196,5 +206,11 @@ int Game::HitOrMiss(int chance) {
         return false;
     }
 }
+<<<<<<< HEAD
+<<<<<<< HEAD
+*/
+
+=======
 
 */
+>>>>>>> 3ef335139e8b1d760d13466cdab975ad836d5663
