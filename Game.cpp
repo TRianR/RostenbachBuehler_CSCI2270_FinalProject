@@ -15,10 +15,33 @@ Game::~Game()
 }
 
 void Game::printMenu(Player* p1){
+    cout << "========================================" << endl;
 	cout<<"1. Search room"<<endl;
 	cout<<"2. Leave room"<<endl;
 	cout<<"3. Show player status"<<endl;
 	cout<<"4. Take potion"<<endl;
+<<<<<<< HEAD
+	cout<<"Q. Quit game"<< endl;
+    cout << "========================================" << endl;
+	string option;
+	cin>>option;
+    if(option=="1")
+    {
+        searchRoom(p1);
+    }
+    else if(option=="2")
+    {
+        changeRoom(p1);
+    }
+    else if(option=="3")
+    {
+        showStatus(p1);
+    }
+    else if(option=="4")
+    {
+        takePotion(p1);
+    }
+=======
 	cout<<"5. Quit"<<endl;
 	string option;
 	cin>>option;
@@ -50,17 +73,25 @@ void Game::printMenu(Player* p1){
 	}
 
 
+>>>>>>> 61cf7eb7c8e2d07c91ccec33947b97915b77143c
 }
 
+void Game::addWeapon(Player* p1){
+    p1->attack = p1->attack + 10;
+    cout << "You have picked up a  " << p1->location->weaponName << "!" << endl << "You increase your attack by 10!" << endl;
+    p1->weaponName = p1->location->weaponName;
+    printMenu(p1);
+}
 
 void Game::searchRoom(Player* p1){
 	if( p1->location->hasWeapon==true)
 	{
+	    p1->location->hasWeapon = false;
 		addWeapon(p1);
-		p1->location->hasWeapon=false;
 	}
 	else if(p1->location->hasPotion==true)
 	{
+	    cout << "You found a potion whilst searching the room! You must be really good at Hide and Go Seek." << endl;
 		p1->potions++;
 		p1->location->hasPotion=false;
 	}
@@ -71,10 +102,8 @@ void Game::searchRoom(Player* p1){
 	printMenu(p1);
 }
 
-
-
 void Game::changeRoom(Player* p1) {
-
+    cout << "========================================" << endl;
     if(p1->location->north != NULL) {
         cout << "N: Go North to "<<p1->location->north->name << endl;
     }
@@ -87,6 +116,7 @@ void Game::changeRoom(Player* p1) {
     if(p1->location->west != NULL) {
         cout << "W: Go West to "<<p1->location->west->name << endl;
     }
+    cout << "========================================" << endl;
     string direction;
     cin>>direction;
     if(direction=="N" || direction=="n" )
@@ -115,6 +145,10 @@ void Game::changeRoom(Player* p1) {
 	printMenu(p1);
 }
 
+void Game::doBattle(Player *p1) {
+
+}
+
 Player* Game::setPlayer(int charNum) {
     Player* p1=new Player;
 
@@ -125,6 +159,7 @@ Player* Game::setPlayer(int charNum) {
         p1->dodge = 2;
         p1->health = 125;
         p1->location=NULL;
+        p1->weaponName = "Are you sure even need one?";
     }
     else if(charNum == 2) {
         // Cheerleader
@@ -133,6 +168,7 @@ Player* Game::setPlayer(int charNum) {
         p1->dodge = 6;
         p1->health = 75;
         p1->location=NULL;
+        p1->weaponName= "Pepperspray! Hahaha just kidding!";
     }
     else{
         // Average Dude
@@ -141,33 +177,29 @@ Player* Game::setPlayer(int charNum) {
         p1->dodge = 4;
         p1->health = 100;
         p1->location=NULL;
+        p1->weaponName= "Oops, did you forget it at home again!?";
     }
     return p1;
 }
 
 void Game::preChoiceStatus(Player* p1) {
+    cout << "========================================" << endl;
     cout << "Player Health: " << p1->health << endl;
     cout << "Attack Damage: " << p1->strength << endl;
     cout << "Dodge Chance: " << p1->dodge << endl;
     cout << "Hit Chance: " << p1->hitChance << endl;
+    cout << "========================================" << endl;
 }
 
 void Game::showStatus(Player* p1) {
     cout << "========================================" << endl;
+    cout << "Player Name: " << p1->name << endl;
     cout << "Player Health: " << p1->health << endl;
-    cout << "Attack Damage: " << p1->attack << endl;
+    cout << "Attack Damage: " << p1->attack + p1->strength << endl;
     cout << "Dodge Chance: " << p1->dodgeTrue << endl;
     cout << "Hit Chance: " << p1->hitChance << endl;
     cout << "Number of Potions: " << p1->potions << endl;
     cout << "Weapon Name: " << p1->weaponName<< endl;
-    cout << "========================================" << endl;
-    printMenu(p1);
-}
-
-void Game::addWeapon(Player* p1){
-    p1->attack = p1->attack + 10;
-    cout << "You have picked up a  " << p1->location->weaponName << "!" << endl << "You increase your attack by 10!" << endl;
-    p1->weaponName = p1->location->weaponName;
     printMenu(p1);
 }
 
