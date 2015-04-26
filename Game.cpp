@@ -178,13 +178,23 @@ void Game::showStatus(Player* p1) {
 
 int Game::dealDamage(Player* p1, Monster* m1) {
 
+	int attack=p1->attack+p1->strength;
     // Do you hit or miss?
     if(HitOrMiss(p1->hitChance) == false) {
         cout << "You missed!" << endl;
     }
     else{
+<<<<<<< HEAD
         cout << "You hit for " << p1->attack + p1->strength << endl;
         m1->MonHealth=m1->MonHealth-p1->attack-p1->strength ;
+=======
+        cout << "You hit for " << attack << endl;
+        m1->MonHealth=m1->MonHealth-attack;
+        if(m1->MonHealth<0)
+        {
+			m1->MonHealth=0;
+		}
+>>>>>>> d4a23a0bc93a5076524f75ca14fe3ec2c54c23b7
         cout<<p1->location->bossName<<"'s health is "<<m1->MonHealth<<endl;
     }
     return 1;
@@ -236,7 +246,7 @@ Room* Game::makeMap()
 Monster* Game::MakeMonster(Player *p1) {
 	Monster* m1= new Monster;
     m1->MonAttack = (p1->health *3);
-    m1->MonHealth = (p1->strength *3);
+    m1->MonHealth = (p1->strength+p1->attack *3);
     return m1;
 }
 
@@ -279,7 +289,11 @@ bool Game::HitOrMiss(int chance) {
 void Game::doBattle(Player* p1)
 {
 	Monster* m1= MakeMonster(p1);
+<<<<<<< HEAD
 	while(m1->MonHealth>0 && p1->health>0)
+=======
+	while(m1->MonHealth!=0 && p1->health != 0)
+>>>>>>> d4a23a0bc93a5076524f75ca14fe3ec2c54c23b7
 	{
 		cout<<"1. Attack"<<endl;
 		cout<<"2. Take Potion"<<endl;
@@ -299,7 +313,12 @@ void Game::doBattle(Player* p1)
 			takeDamage(p1, m1);
 		}
 	}
+<<<<<<< HEAD
 	if(p1->health==0)
+=======
+	
+	if(p1->health < 0)
+>>>>>>> d4a23a0bc93a5076524f75ca14fe3ec2c54c23b7
 	{
 		cout<<"You died."<<endl;
 		cout<<"Game Over"<<endl;
