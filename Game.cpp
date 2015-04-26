@@ -20,6 +20,25 @@ void Game::printMenu(Player* p1){
 	cout<<"1. Search room"<<endl;
 	cout<<"2. Leave room"<<endl;
 	cout<<"3. Show player status"<<endl;
+<<<<<<< HEAD
+	string option;
+	cin>>option;
+	if(option=="1")
+	{
+		cout<<"search"<<endl;
+	}
+	else if(option=="2")
+	{
+		changeRoom(p1);
+	}
+	else
+	{
+		showStatus(p1);
+	}
+	
+}
+=======
+>>>>>>> 3ff06fff14b44859d77696c255e90c46089c56d3
 
 }
 
@@ -44,6 +63,32 @@ void Game::changeRoom(Player* p1) {
     if(p1->location->west != NULL) {
         cout << "W: Go West to "<<p1->location->west->name << endl;
     }
+    string direction;
+    cin>>direction;
+    if(direction=="N" || direction=="n" )
+    {
+		p1->location=p1->location->north;
+		cout<<p1->location->entMes<<endl;
+		printMenu(p1);
+	}
+	else if(direction=="S" || direction=="s")
+    {
+		p1->location=p1->location->south;
+		cout<<p1->location->entMes<<endl;
+		printMenu(p1);
+	}
+	else if(direction=="E" || direction=="e")
+    {
+		p1->location=p1->location->east;
+		cout<<p1->location->entMes<<endl;
+		printMenu(p1);
+	}
+	else
+    {
+		p1->location=p1->location->west;;
+		cout<<p1->location->entMes<<endl;
+		printMenu(p1);
+	}
 }
 
 Player* Game::setPlayer(int charNum) {
