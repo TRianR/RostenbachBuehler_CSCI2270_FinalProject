@@ -31,8 +31,6 @@ struct Player
 	int strength;
 	int dodge;
 	//int potions;
-	//int keys;
-	//bool hasKey;
 	//Weapon weapon;
 	int hitChance;
 	Room* location;

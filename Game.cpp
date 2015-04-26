@@ -185,6 +185,10 @@ Room* Game::makeMap()
 	const3->entMes="You stand in a decaying den, with a large fireplace in the far wall.";
 	const2->east=const3;
 	const3->west=const2;
+	Room* const4= new Room;
+	const4->name= "Boss room";
+	const4->entMes="You wake up in a stone walled room. Infront of you is a ghoul! Fight it off!";
+	const3->south= const4;
 
 	return root;
 }
