@@ -1,6 +1,10 @@
 #ifndef GAME_H
 #define GAME_H
 #include <string>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
 struct Room
 {
 	std::string name;
@@ -48,20 +52,29 @@ class Game
         void showStatus(Player*);
         int takePotion(Player*);
         void addWeapon(Player*);
+<<<<<<< HEAD
         bool doBattle(Player*);
+=======
+        void doBattle(Player*);
+>>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
         bool HitOrMiss(int);
         int dealDamage(Player*, Monster*);
         int takeDamage(Player*, Monster*);
         Room* makeMap();
         void changeRoom(Player*);
+<<<<<<< HEAD
         void searchRoom(Player*);
         void startGame(Player*);
+=======
+        void startGame(Player*);
+        void searchRoom(Player*);
+        void startGame(Player*, Monster*);
+        void MakeMonster(Player* , Monster*);
+>>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
         Monster* MakeMonster(Player*);
     protected:
     private:
 		void playerSet(int);
-		//void printMenu(Player);
-
 };
 
 #endif // GAME_H

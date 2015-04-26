@@ -20,7 +20,12 @@ void Game::printMenu(Player* p1){
 	cout<<"2. Leave room"<<endl;
 	cout<<"3. Show player status"<<endl;
 	cout<<"4. Take potion"<<endl;
+<<<<<<< HEAD
 	cout<<"5. Quit"<<endl;
+=======
+	cout<<"5. Quit" << endl;
+    cout << "========================================" << endl;
+>>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
 	string option;
 	cin>>option;
 	if(option=="1")
@@ -42,7 +47,7 @@ void Game::printMenu(Player* p1){
 	}
 	else if(option=="5")
 	{
-		cout<<"goodbye"<<endl;
+		cout<<"Goodbye!"<<endl;
 	}
 	else
 	{
@@ -99,22 +104,41 @@ void Game::changeRoom(Player* p1) {
     {
 		p1->location=p1->location->north;
 		cout<<p1->location->entMes<<endl;
+<<<<<<< HEAD
 		
+=======
+        printMenu(p1);
+>>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
 	}
 	else if(direction=="S" || direction=="s")
     {
 		p1->location=p1->location->south;
 		cout<<p1->location->entMes<<endl;
+<<<<<<< HEAD
 		
+=======
+        printMenu(p1);
+>>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
 	}
 	else if(direction=="E" || direction=="e")
     {
 		p1->location=p1->location->east;
 		cout<<p1->location->entMes<<endl;
+<<<<<<< HEAD
 		
+=======
+		printMenu(p1);
+	}
+	else if(direction == "W" || direction == "w")
+    {
+		p1->location=p1->location->west;
+		cout<<p1->location->entMes<<endl;
+		printMenu(p1);
+>>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
 	}
 	else if( direction=="W" || direction=="w")
     {
+<<<<<<< HEAD
 		p1->location=p1->location->west;;
 		cout<<p1->location->entMes<<endl;
 		
@@ -122,6 +146,9 @@ void Game::changeRoom(Player* p1) {
 	else
 	{
 		changeRoom(p1);
+=======
+        changeRoom(p1);
+>>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
 	}
 	if(p1->location->hasMon == true) {
        end=doBattle(p1);
@@ -177,6 +204,7 @@ void Game::preChoiceStatus(Player* p1) {
 void Game::showStatus(Player* p1) {
     cout << "========================================" << endl;
     cout << "Player Name: " << p1->name << endl;
+    cout << "Room: " << p1->location->name << endl;
     cout << "Player Health: " << p1->health << endl;
     cout << "Attack Damage: " << p1->attack + p1->strength << endl;
     cout << "Dodge Chance: " << p1->dodgeTrue << endl;
@@ -194,8 +222,8 @@ int Game::dealDamage(Player* p1, Monster* m1) {
         cout << "You missed!" << endl;
     }
     else{
-        cout << "You hit for " << attack << endl;
-        m1->MonHealth=m1->MonHealth-attack;
+        cout << "You hit for " << p1->attack + p1->strength << endl;
+        m1->MonHealth=m1->MonHealth-p1->attack-p1->strength ;
         if(m1->MonHealth<0)
         {
 			m1->MonHealth=0;
@@ -264,6 +292,9 @@ void Game::startGame(Player* p1) {
     cin >> input;
     p1->location = p1->location->east;
     cout << p1->location->entMes << endl;
+    for(int i = 0; i < 10; i++) {
+        cout << "" << endl;
+    }
     printMenu(p1);
 }
 
@@ -296,8 +327,8 @@ bool Game::HitOrMiss(int chance) {
 bool Game::doBattle(Player* p1)
 {
 	Monster* m1= MakeMonster(p1);
-	while(m1->MonHealth!=0 && p1->health != 0)
-	{
+	while(m1->MonHealth>0 && p1->health>0)
+    {
 		cout<<"1. Attack"<<endl;
 		cout<<"2. Take Potion"<<endl;
 		string option;
@@ -310,13 +341,12 @@ bool Game::doBattle(Player* p1)
 		{
 			takePotion(p1);
 		}
-		
+
 		if(m1->MonHealth!=0)
 		{
 			takeDamage(p1, m1);
 		}
 	}
-	
 	if(p1->health < 0)
 	{
 		cout<<"You died."<<endl;
