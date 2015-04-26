@@ -43,7 +43,7 @@ void Game::printMenu(Player* p1){
 	}
 	else if(option=="5")
 	{
-		cout<<"goodbye"<<endl;
+		cout<<"Goodbye!"<<endl;
 	}
 	else
 	{
@@ -99,26 +99,33 @@ void Game::changeRoom(Player* p1) {
     {
 		p1->location=p1->location->north;
 		cout<<p1->location->entMes<<endl;
+        printMenu(p1);
 	}
 	else if(direction=="S" || direction=="s")
     {
 		p1->location=p1->location->south;
 		cout<<p1->location->entMes<<endl;
+        printMenu(p1);
 	}
 	else if(direction=="E" || direction=="e")
     {
 		p1->location=p1->location->east;
 		cout<<p1->location->entMes<<endl;
+		printMenu(p1);
+	}
+	else if(direction == "W" || direction == "w")
+    {
+		p1->location=p1->location->west;
+		cout<<p1->location->entMes<<endl;
+		printMenu(p1);
 	}
 	else
     {
-		p1->location=p1->location->west;;
-		cout<<p1->location->entMes<<endl;
+        changeRoom(p1);
 	}
 	if(p1->location->hasMon == true) {
         doBattle(p1);
 	}
-	printMenu(p1);
 }
 
 Player* Game::setPlayer(int charNum) {
@@ -184,17 +191,12 @@ int Game::dealDamage(Player* p1, Monster* m1) {
         cout << "You missed!" << endl;
     }
     else{
-<<<<<<< HEAD
         cout << "You hit for " << p1->attack + p1->strength << endl;
         m1->MonHealth=m1->MonHealth-p1->attack-p1->strength ;
-=======
-        cout << "You hit for " << attack << endl;
-        m1->MonHealth=m1->MonHealth-attack;
         if(m1->MonHealth<0)
         {
 			m1->MonHealth=0;
 		}
->>>>>>> d4a23a0bc93a5076524f75ca14fe3ec2c54c23b7
         cout<<p1->location->bossName<<"'s health is "<<m1->MonHealth<<endl;
     }
     return 1;
@@ -257,6 +259,9 @@ void Game::startGame(Player* p1) {
     cin >> input;
     p1->location = p1->location->east;
     cout << p1->location->entMes << endl;
+    for(int i = 0; i < 10; i++) {
+        cout << "" << endl;
+    }
     printMenu(p1);
 }
 
@@ -289,12 +294,8 @@ bool Game::HitOrMiss(int chance) {
 void Game::doBattle(Player* p1)
 {
 	Monster* m1= MakeMonster(p1);
-<<<<<<< HEAD
 	while(m1->MonHealth>0 && p1->health>0)
-=======
-	while(m1->MonHealth!=0 && p1->health != 0)
->>>>>>> d4a23a0bc93a5076524f75ca14fe3ec2c54c23b7
-	{
+    {
 		cout<<"1. Attack"<<endl;
 		cout<<"2. Take Potion"<<endl;
 		string option;
@@ -313,12 +314,7 @@ void Game::doBattle(Player* p1)
 			takeDamage(p1, m1);
 		}
 	}
-<<<<<<< HEAD
-	if(p1->health==0)
-=======
-	
 	if(p1->health < 0)
->>>>>>> d4a23a0bc93a5076524f75ca14fe3ec2c54c23b7
 	{
 		cout<<"You died."<<endl;
 		cout<<"Game Over"<<endl;

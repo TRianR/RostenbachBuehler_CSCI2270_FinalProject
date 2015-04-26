@@ -22,10 +22,16 @@ int main()
 	cout<<endl;
 	cout<<endl;
 	cout<<"There are three characters to play"<<endl;
-	cout<<"Logan is a footbal player for the varsity team. He is a little on the shy side, but is nice to those around him. Logan plays defensive tackle, and yes he lifts."<<endl;
-	cout<<"Kari is head of the cheersquad, she and logan are dating. She is a little stuck up, but always supports logan. She always claims the top of the pyramid."<<endl;
-	cout<<"Jackson has been friends with Kari and logan since first grade. He's a pretty average guy, who doesn't take anything too seriously. Jackson can keep up with Kari in a run, but works out with Logan."<<endl;
-
+	cout<<endl;
+	cout<<"Logan is a football player for the varsity team. He is a little on the shy side, but is nice to those around him." << endl;
+	cout<<"He plays defensive tackle, and yes he lifts."<<endl;
+	cout<<endl;
+	cout<<"Kari is head of the cheer squad, she and Logan are dating. She is a little stuck up, but always supports Logan."<<endl;
+	cout<<"She always claims the top of the pyramid."<<endl;
+	cout<<endl;
+	cout<<"Jackson has been friends with Kari and Logan since first grade. He's a pretty average guy, who doesn't take anything too seriously."<<endl;
+	cout<<"He can keep up with Kari in a run, but works out with Logan."<<endl;
+    cout<<endl;
 	bool happy=false;
 	string cont;
 	string choice;
