@@ -13,6 +13,8 @@ using namespace std;
 
 Game G= Game();
 Room* root=G.makeMap();
+Player* p1= new Player;
+p1->location=NULL;
 
 int main()
 {
@@ -34,8 +36,8 @@ int main()
 		cout<<"2. Kari"<<endl;
 		cout<<"3. Jackson"<<endl;
 		cin>>choice;
-		setPlayer(stoi(choice));
-		preChoiceStatus();
+		p1=setPlayer(stoi(choice));
+		preChoiceStatus(player);
 		cout<<endl;
 		cout<<endl;
 		cout<<endl;
@@ -47,15 +49,6 @@ int main()
 		{
 			happy=true;
 		}
-<<<<<<< HEAD
-		else
-		{
-			happy=false;
-		}
 
-=======
-		
-		
->>>>>>> fa368334386af3889c6b5626a61c3ca445b774ca
 	}
 }

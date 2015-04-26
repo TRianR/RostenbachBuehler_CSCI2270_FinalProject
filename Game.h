@@ -2,10 +2,9 @@
 #define GAME_H
 #include <string>
 
-<<<<<<< HEAD
+
 /*
-=======
->>>>>>> d2c59c9789dcf76130ff5a89b36fd7196807078c
+
 struct Weapon
 {
 	std::string weaponName;
@@ -40,30 +39,21 @@ struct Player
 
 };
 
-<<<<<<< HEAD
 
-=======
->>>>>>> d2c59c9789dcf76130ff5a89b36fd7196807078c
 class Game
 {
     public:
         Game();
         virtual ~Game();
-        void setPlayer(int);
-        void printMenu();
-<<<<<<< HEAD
-        void preChoiceStatus(int choice);
+        Player* setPlayer(int);
+        void printMenu(Player*);
+        void preChoiceStatus(Player*);
+        
         //void showStatus(Player);
         //int dealDamage(int attack, int hitChance, int enemyHealth);
-        //int takeDamage(int enemyAttack, dodge, int health);
-        void setPlayer(int);
+        //int takeDamage(int enemyAttack, int dodge, int health);
         Room* makeMap();
-=======
-        void preChoiceStatus(int);
-        void showStatus(Player);
-        int dealDamage(int, int, int);
-        int takeDamage(int, int, int);
->>>>>>> d2c59c9789dcf76130ff5a89b36fd7196807078c
+        void changeRoom(Player*);
     protected:
     private:
 		void playerSet(int);
