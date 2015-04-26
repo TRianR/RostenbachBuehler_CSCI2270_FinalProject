@@ -55,7 +55,6 @@ int main()
 		}
 	}
 	p1->location = root;
-	G.MakeMonster(p1, m1);
     G.startGame(p1, m1);
 }
 
