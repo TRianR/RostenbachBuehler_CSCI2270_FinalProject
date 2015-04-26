@@ -14,7 +14,6 @@ using namespace std;
 Game G= Game();
 Room* root=G.makeMap();
 Player* p1= new Player;
-p1->location=NULL;
 
 int main()
 {
@@ -36,26 +35,18 @@ int main()
 		cout<<"2. Kari"<<endl;
 		cout<<"3. Jackson"<<endl;
 		cin>>choice;
-		p1=setPlayer(stoi(choice));
-		preChoiceStatus(player);
+		p1=G.setPlayer(stoi(choice));
+		G.preChoiceStatus(p1);
 		cout<<endl;
 		cout<<endl;
 		cout<<endl;
 		cout<<"Are you happy with your choice?"<<endl;
 		cout<<endl;
 		cout<<"           y/n"<<endl;
-		cin<<cont;
-		if(cont=='y')
+		cin>>cont;
+		if(cont=="y")
 		{
 			happy=true;
 		}
-<<<<<<< HEAD
-=======
-		else
-		{
-			happy=false;
-		}
->>>>>>> cb4fe2f44c32b475a818fe92a059c2027491c548
-
 	}
 }

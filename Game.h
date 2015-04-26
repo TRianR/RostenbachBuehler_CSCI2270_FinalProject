@@ -21,7 +21,7 @@ struct Room
 	Room* east;
 	Room* south;
 	Room* west;
-	
+
 };
 
 struct Player
@@ -48,8 +48,8 @@ class Game
         Player* setPlayer(int);
         void printMenu(Player*);
         void preChoiceStatus(Player*);
-        
-        //void showStatus(Player);
+
+        void showStatus(Player*);
         //int dealDamage(int attack, int hitChance, int enemyHealth);
         //int takeDamage(int enemyAttack, int dodge, int health);
         Room* makeMap();
@@ -57,7 +57,7 @@ class Game
     protected:
     private:
 		void playerSet(int);
-		void printMenu(Player);
+		//void printMenu(Player*);
 
 };
 
