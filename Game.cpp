@@ -20,28 +20,6 @@ void Game::printMenu(Player* p1){
 	cout<<"2. Leave room"<<endl;
 	cout<<"3. Show player status"<<endl;
 	cout<<"4. Take potion"<<endl;
-<<<<<<< HEAD
-	cout<<"Q. Quit game"<< endl;
-    cout << "========================================" << endl;
-	string option;
-	cin>>option;
-    if(option=="1")
-    {
-        searchRoom(p1);
-    }
-    else if(option=="2")
-    {
-        changeRoom(p1);
-    }
-    else if(option=="3")
-    {
-        showStatus(p1);
-    }
-    else if(option=="4")
-    {
-        takePotion(p1);
-    }
-=======
 	cout<<"5. Quit"<<endl;
 	string option;
 	cin>>option;
@@ -71,9 +49,6 @@ void Game::printMenu(Player* p1){
 		cout<<"Please choose an option on the menu"<<endl;
 		printMenu(p1);
 	}
-
-
->>>>>>> 61cf7eb7c8e2d07c91ccec33947b97915b77143c
 }
 
 void Game::addWeapon(Player* p1){
@@ -103,6 +78,7 @@ void Game::searchRoom(Player* p1){
 }
 
 void Game::changeRoom(Player* p1) {
+	bool end=false;
     cout << "========================================" << endl;
     if(p1->location->north != NULL) {
         cout << "N: Go North to "<<p1->location->north->name << endl;
@@ -123,30 +99,37 @@ void Game::changeRoom(Player* p1) {
     {
 		p1->location=p1->location->north;
 		cout<<p1->location->entMes<<endl;
+		
 	}
 	else if(direction=="S" || direction=="s")
     {
 		p1->location=p1->location->south;
 		cout<<p1->location->entMes<<endl;
+		
 	}
 	else if(direction=="E" || direction=="e")
     {
 		p1->location=p1->location->east;
 		cout<<p1->location->entMes<<endl;
+		
 	}
-	else
+	else if( direction=="W" || direction=="w")
     {
 		p1->location=p1->location->west;;
 		cout<<p1->location->entMes<<endl;
+		
+	}
+	else
+	{
+		changeRoom(p1);
 	}
 	if(p1->location->hasMon == true) {
-        doBattle(p1);
+       end=doBattle(p1);
 	}
-	printMenu(p1);
-}
-
-void Game::doBattle(Player *p1) {
-
+	if(end==false)
+	{
+		printMenu(p1);
+	}
 }
 
 Player* Game::setPlayer(int charNum) {
@@ -257,18 +240,20 @@ Room* Game::makeMap()
 	const3->west=const2;
 	Room* const4= new Room;
 	const4->name= "Boss room";
-	const4->entMes="You wake up in a stone walled room. Infront of you is a ghoul! Fight it off!";
+	const4->entMes="You enter a stone walled room. Infront of you is a ghoul! Fight it off!";
 	const4->bossName= "Ghastly Ghoul";
 	const4->hasMon=true;
+	const4->isEnd=true;
 	const3->south= const4;
 
 	return root;
 }
 
 Monster* Game::MakeMonster(Player *p1) {
+	int attack=p1->attack+p1->strength;
 	Monster* m1= new Monster;
-    m1->MonAttack = (p1->health *3);
-    m1->MonHealth = (p1->strength+p1->attack *3);
+    m1->MonAttack = (p1->health /3);
+    m1->MonHealth = ( attack*3);
     return m1;
 }
 
@@ -308,7 +293,7 @@ bool Game::HitOrMiss(int chance) {
     }
 }
 
-void Game::doBattle(Player* p1)
+bool Game::doBattle(Player* p1)
 {
 	Monster* m1= MakeMonster(p1);
 	while(m1->MonHealth!=0 && p1->health != 0)
@@ -336,10 +321,25 @@ void Game::doBattle(Player* p1)
 	{
 		cout<<"You died."<<endl;
 		cout<<"Game Over"<<endl;
+		return true;
 	}
 	else
 	{
 		cout<<"You defeated the enemy!"<<endl;
+	}
+	if(p1->location->isEnd==false)
+	{
+		return false;
+	}
+	else
+	{
+		cout<<"Congratulations!!"<<endl;
+		cout<<"You won the game!!"<<endl;
+		cout<<endl;
+		cout<<endl;
+		cout<<"You feel a shake on your sholder, you realize you had dozed off."<<endl;
+		return true;
+		
 	}
 }
 
