@@ -2,12 +2,7 @@
 #define GAME_H
 #include <string>
 
-<<<<<<< HEAD
 
-
-
-=======
->>>>>>> 3b2654d7840ff9d0ea2c0be2e34e72aa4d93a5b1
 struct Room
 {
 	std::string name;
@@ -16,7 +11,7 @@ struct Room
 	std::string weaponName;
 	bool hasWeapon;
 	bool hasPotion;
-	bool hasMonster;
+	bool hasMon;
 	Room* north;
 	Room* east;
 	Room* south;
@@ -30,17 +25,10 @@ struct Player
 	int health;
 	int strength;
 	int dodge;
-<<<<<<< HEAD
-	int potions;
 	std::string weaponName;
-	
-=======
 	int potions = 3;
 	int attack;
 	int dodgeTrue;
-	std::string weaponName;
-	//Weapon weapon;
->>>>>>> 3b2654d7840ff9d0ea2c0be2e34e72aa4d93a5b1
 	int hitChance;
 	Room* location;
 
@@ -59,21 +47,17 @@ class Game
         void printMenu(Player*);
         void preChoiceStatus(Player*);
         void showStatus(Player*);
-        void takePotion(Player*);
+        int takePotion(Player*);
         void addWeapon(Player*);
         void doBattle(Player*);
-        //int dealDamage(int attack, int hitChance, int enemyHealth);
-        //int takeDamage(int enemyAttack, int dodge, int health);
+        bool HitOrMiss(int);
+        int dealDamage(Player*, Monster*);
+        int takeDamage(Player*, Monster*);
         Room* makeMap();
         void changeRoom(Player*);
-<<<<<<< HEAD
-        void startGame(Player*);
         void searchRoom(Player*);
-        void doBattle(Player*
-=======
-        void startGame(Player* , Monster*);
-        void MakeMonster(Player* , Monster*);
->>>>>>> 3b2654d7840ff9d0ea2c0be2e34e72aa4d93a5b1
+        void startGame(Player*);
+        Monster* MakeMonster(Player*);
     protected:
     private:
 		void playerSet(int);

@@ -29,24 +29,26 @@ void Game::printMenu(Player* p1){
 	{
 		changeRoom(p1);
 	}
-<<<<<<< HEAD
-	else 
-=======
 	else if(option=="3")
->>>>>>> 3b2654d7840ff9d0ea2c0be2e34e72aa4d93a5b1
 	{
 		showStatus(p1);
 	}
 	else if(option=="4")
 	{
 	    takePotion(p1);
+	    printMenu(p1);
+	}
+	else
+	{
+		cout<<"Please choose an option on the menu"<<endl;
+		printMenu(p1);
 	}
 
 
 }
 
 
-void searchRoom(Player* p1){
+void Game::searchRoom(Player* p1){
 	if( p1->location->hasWeapon==true)
 	{
 		addWeapon(p1);
@@ -61,7 +63,7 @@ void searchRoom(Player* p1){
 	{
 		cout<<"You searched and didn't find anything"<<endl;
 	}
-	printMenu();
+	printMenu(p1);
 }
 
 
@@ -164,33 +166,33 @@ void Game::addWeapon(Player* p1){
     printMenu(p1);
 }
 
-/*
-
-int Game::dealDamage(int attack, int hitChance, int enemyHealth) {
+int Game::dealDamage(Player* p1, Monster* m1) {
 
     // Do you hit or miss?
-    if(HitOrMiss(hitChance) == false) {
+    if(HitOrMiss(p1->hitChance) == false) {
         cout << "You missed!" << endl;
     }
     else{
-        cout << "You hit for " << dealDamage(attack) << endl;
-        enemyHealth = enemyHealth - attack;
-        return enemyHealth;
+        cout << "You hit for " << p1->attack << endl;
+        m1->MonHealth=m1->MonHealth-p1->attack;
+        cout<<p1->location->bossName<<"'s health is "<<m1->MonHealth<<endl;
     }
+    return 1;
 }
 
-int Game::takeDamage(int enemyAttack, int dodge, int health) {
+int Game::takeDamage(Player* p1, Monster* m1) {
     // Do you dodge or get hit?
-    if(HitOrMiss(dodge) == false) {
-        cout << "The enemy has attacked you for " << enemyAttack << endl;
-        health = health - enemyAttack;
-        return health;
+    if(HitOrMiss(p1->dodge) == false) {
+        cout << "The enemy has attacked you for " << m1->MonAttack << endl;
+        p1->health = p1->health - m1->MonAttack;
+        cout<<"Your health is "<<p1->health<<endl;
     }
     else{
         cout << "The enemy missed! You take no damage!" << endl;
     }
+    return 1;
 }
-*/
+
 
 Room* Game::makeMap()
 {
@@ -215,34 +217,32 @@ Room* Game::makeMap()
 	const4->name= "Boss room";
 	const4->entMes="You wake up in a stone walled room. Infront of you is a ghoul! Fight it off!";
 	const4->bossName= "Ghastly Ghoul";
-	const4->hasMonster=true;
+	const4->hasMon=true;
 	const3->south= const4;
 
 	return root;
 }
 
-void Game::MakeMonster(Player *p1, Monster *m1) {
+Monster* Game::MakeMonster(Player *p1) {
+	Monster* m1= new Monster;
     m1->MonAttack = (p1->health *3);
     m1->MonHealth = (p1->strength *3);
+    return m1;
 }
 
-void Game::startGame(Player* p1, Monster* m1) {
+void Game::startGame(Player* p1) {
     cout << p1->location->entMes << endl;
     cout << "Enter anything to enter the house and begin your journey!" << endl;
     string input;
     cin >> input;
     p1->location = p1->location->east;
     cout << p1->location->entMes << endl;
-
-    // Initialize monster
-    MakeMonster(p1, m1);
     printMenu(p1);
 }
 
-void Game::takePotion(Player* p1) {
+int Game::takePotion(Player* p1) {
     if(p1->potions == 0) {
         cout <<"You have no potions left!" << endl;
-        printMenu(p1);
     }
     else{
         cout << "You're health went from " << p1->health;
@@ -250,12 +250,12 @@ void Game::takePotion(Player* p1) {
         p1->potions = p1->potions - 1;
         cout << " to " << p1->health << "!" << endl;
         cout << "You have " << p1->potions << " left." << endl;
-        printMenu(p1);
     }
+    return 1;
 }
 
-/*
-int Game::HitOrMiss(int chance) {
+
+bool Game::HitOrMiss(int chance) {
     // random number between 1 and 10
     int randomNum = rand() % 10 +1;
     if(chance <= randomNum) {
@@ -266,5 +266,38 @@ int Game::HitOrMiss(int chance) {
     }
 }
 
+void Game::doBattle(Player* p1)
+{
+	Monster* m1= MakeMonster(p1);
+	while(m1->MonHealth!=0 || p1->health!=0)
+	{
+		cout<<"1. Attack"<<endl;
+		cout<<"2. Take Potion"<<endl;
+		string option;
+		cin>>option;
+		if(option=="1")
+		{
+			dealDamage(p1,m1);
+		}
+		else
+		{
+			takePotion(p1);
+		}
+		
+		if(m1->MonHealth!=0)
+		{
+			takeDamage(p1, m1);
+		}
+	}
+	
+	if(p1->health==0)
+	{
+		cout<<"You died."<<endl;
+		cout<<"Game Over"<<endl;
+	}
+	else
+	{
+		cout<<"You defeated the enemy!"<<endl;
+	}
+}
 
-*/
