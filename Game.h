@@ -22,7 +22,7 @@ struct Player
 	int potions = 3;
 	int attack;
 	int dodgeTrue;
-	std::string weapon;
+	std::string weaponName;
 	//Weapon weapon;
 	int hitChance;
 	Room* location;

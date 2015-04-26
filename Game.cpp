@@ -142,7 +142,7 @@ void Game::showStatus(Player* p1) {
 void Game::addWeapon(Player* p1){
     p1->attack = p1->attack + 10;
     cout << "You have picked up a  " << p1->location->weaponName << "!" << endl << "You increase your attack by 10!" << endl;
-    p1->weapon = p1->location->weaponName;
+    p1->weaponName = p1->location->weaponName;
     printMenu(p1);
 }
 
