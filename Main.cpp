@@ -14,7 +14,7 @@ using namespace std;
 Game G= Game();
 Room* root=G.makeMap();
 Player* p1= new Player;
-
+Monster* m1 = new Monster;
 
 int main()
 {
@@ -55,6 +55,7 @@ int main()
 		}
 	}
 	p1->location = root;
-    G.startGame(p1);
+	G.MakeMonster(p1, m1);
+    G.startGame(p1, m1);
 }
 
