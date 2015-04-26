@@ -44,6 +44,7 @@ class Game
         void showStatus(Player*);
         void takePotion(Player*);
         void addWeapon(Player*);
+        void doBattle(Player*);
         //int dealDamage(int attack, int hitChance, int enemyHealth);
         //int takeDamage(int enemyAttack, int dodge, int health);
         Room* makeMap();
