@@ -19,6 +19,7 @@ void Game::printMenu(Player* p1){
 	cout<<"2. Leave room"<<endl;
 	cout<<"3. Show player status"<<endl;
 	cout<<"4. Take potion"<<endl;
+	cout<<"5. Quit"<<endl;
 	string option;
 	cin>>option;
 	if(option=="1")
@@ -37,6 +38,10 @@ void Game::printMenu(Player* p1){
 	{
 	    takePotion(p1);
 	    printMenu(p1);
+	}
+	else if(option=="5")
+	{
+		cout<<"goodbye"<<endl;
 	}
 	else
 	{
