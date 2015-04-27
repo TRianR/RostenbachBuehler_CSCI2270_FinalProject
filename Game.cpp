@@ -20,12 +20,8 @@ void Game::printMenu(Player* p1){
 	cout<<"2. Leave room"<<endl;
 	cout<<"3. Show player status"<<endl;
 	cout<<"4. Take potion"<<endl;
-<<<<<<< HEAD
-	cout<<"5. Quit"<<endl;
-=======
 	cout<<"5. Quit" << endl;
     cout << "========================================" << endl;
->>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
 	string option;
 	cin>>option;
 	if(option=="1")
@@ -60,7 +56,6 @@ void Game::addWeapon(Player* p1){
     p1->attack = p1->attack + 10;
     cout << "You have picked up a  " << p1->location->weaponName << "!" << endl << "You increase your attack by 10!" << endl;
     p1->weaponName = p1->location->weaponName;
-    printMenu(p1);
 }
 
 void Game::searchRoom(Player* p1){
@@ -104,51 +99,30 @@ void Game::changeRoom(Player* p1) {
     {
 		p1->location=p1->location->north;
 		cout<<p1->location->entMes<<endl;
-<<<<<<< HEAD
-		
-=======
-        printMenu(p1);
->>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
 	}
 	else if(direction=="S" || direction=="s")
     {
 		p1->location=p1->location->south;
 		cout<<p1->location->entMes<<endl;
-<<<<<<< HEAD
-		
-=======
-        printMenu(p1);
->>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
 	}
 	else if(direction=="E" || direction=="e")
     {
 		p1->location=p1->location->east;
 		cout<<p1->location->entMes<<endl;
-<<<<<<< HEAD
-		
-=======
-		printMenu(p1);
 	}
 	else if(direction == "W" || direction == "w")
     {
 		p1->location=p1->location->west;
 		cout<<p1->location->entMes<<endl;
-		printMenu(p1);
->>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
 	}
 	else if( direction=="W" || direction=="w")
     {
-<<<<<<< HEAD
 		p1->location=p1->location->west;;
 		cout<<p1->location->entMes<<endl;
-		
 	}
 	else
 	{
 		changeRoom(p1);
-=======
-        changeRoom(p1);
->>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
 	}
 	if(p1->location->hasMon == true) {
        end=doBattle(p1);
@@ -222,8 +196,8 @@ int Game::dealDamage(Player* p1, Monster* m1) {
         cout << "You missed!" << endl;
     }
     else{
-        cout << "You hit for " << p1->attack + p1->strength << endl;
-        m1->MonHealth=m1->MonHealth-p1->attack-p1->strength ;
+        cout << "You hit for " << attack << endl;
+        m1->MonHealth=m1->MonHealth-attack ;
         if(m1->MonHealth<0)
         {
 			m1->MonHealth=0;
