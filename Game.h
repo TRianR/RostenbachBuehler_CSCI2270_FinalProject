@@ -1,6 +1,11 @@
 #ifndef GAME_H
 #define GAME_H
 #include <string>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 524ec136730883e6b0bc59f0a46e6c4904dd3f01
 struct Room
 {
 	std::string name;
@@ -54,8 +59,13 @@ class Game
         int takeDamage(Player*, Monster*);
         Room* makeMap();
         void changeRoom(Player*);
+<<<<<<< HEAD
         void searchRoom(Player*);
         void startGame(Player*);
+=======
+        void startGame(Player*);
+        void searchRoom(Player*);
+>>>>>>> 524ec136730883e6b0bc59f0a46e6c4904dd3f01
         Monster* MakeMonster(Player*);
     protected:
     private:
