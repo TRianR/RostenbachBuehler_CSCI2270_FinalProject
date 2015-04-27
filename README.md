@@ -66,5 +66,34 @@ Called via the printMenu function, option #2. It first checks that if the curren
 bool doBattle(Player* p1)
 When p1->location->hasMon == true in the room that the user is it this function is called. It starts by setting a Monster* m1 to function MakeMonster where it sets m1->monHealth and m1->monAttack based of the user's player stats. From here the player(p1) and the monster(m1) do battle. While the player's health and the monster's is greater than 0 the user can select 2 options to perform. 1 to attack the monster, calling the function dealDamage(p1, m1) or 2 which is take a potion which calls the takePotion(p1) function. After the user selects their choice and it deals damage or takes a potion the monster attacks the player, done by calling the takeDamage(p1, m1) function. Once the player's or monster's health is not > 0 it quits the while loop and checks to see if the player died or the monster died. If player died the game ends and outputs a "You lose" screen and if the monster died it outputs a "You killed the enemy" screen. It then checks if the rooms the monster was slain in is the last room, via p1->location->isEnd == false, and if it is not the game continues, if it equals true then it cout's a "Victory Screen" and ends the game.
 
+void showStatus(Player* p1)
+Called when user selects option 3 from the printMenu function. It is passed p1 and it then prints out all the player attributes and then calls printMenu so the user can continue with the game.
 
+
+int takePotion(Player* p1)
+Option 4 from the printMenu function. It checks it the user has any potions and if you have none it says you have none and if you have atleast one potion it states what your health was, increases your health, then states what is after taking the potion. It then decreases the amount of potions you have by one and prints out how many potions you have left.
+
+int dealDamage(Player* p1, Monster* m1)
+Called during battle from the doBattle function, it takes in p1 and m1. It first make a variable attack which is the sum of p1->strength and p1->attack. It then calls the HitOrMiss function passing the p1->hitChance and it returns false then the player missed their attack and it is done. It HitOrMiss returns true then the players attack has hit the monster and it lowers the monster health by the attack variable made at the start. If the monster's health is less than or equal to 0 then it just assigns the health to 0. It then prints out the monster's name with their health.
+
+int takeDamage(Player* p1, Monster* m1)
+Called right after the dealDamage function in the doBattle function if the monster health, m1->MonHealth != 0, and it checks to see if the monster's attack hits the player and if it does it reduces the players health, p1->health. It checks if the mmonster attacks hit by callling the HitOrMiss function and passing the players dodge chance, p1->dodge. If it returns true than the attack hit the player and it lowers the players health by the monster's attack, m1->MonAttack, and cout's the amount for the player was hit for and what their health is after. If it returns false the monster's attack missed and it cout's that the player has dodged.
+
+bool HitOrMiss(int chance)
+Passed the players chance to hit the monster and the players chance to dodge the monster's attack. It assigns an int variable randomNum to a randomly generated number between 1 and 10. Then if the passed variable, either p1->dodge or p1->hitChance, is less than or equal the number randomly generated then it returns true, meaning the player has hit or dodged. Else returns false meaning the player didn't hit or get hit turning this turn.
+
+Monster* MakeMonster(Player* p1)
+Called when the player is traversing the rooms and finds one with a monster in it, p1->location->hasMon == true. It assigns the monster's attack and health, m1->MonAttack and m1->MonHealth, scaled off the players attack and health and then returns the pointer.
+
+void startGame(Player* p1)
+Called via Main.cpp at the very start of the game after the player has selected and signified that they like the character they are going to play as. It "pauses" the game and will continue once the player entered in anything into the terminal, does not matter what they input as long as they input something. It then cout's some messages to build the story of the game and it finally calls printMenu so the player can begin.
+
+Room* makeMap()
+Also called via Main.cpp and builds the doubly linked list of rooms that the player can traverse through. It assigns variables to each room, such as if it has a potion/weapon, its name, and if it has a monster.
+
+Player* setPlayer(int charNum)
+It sets all the player pointer values to what they are by default depending on which character the user wishes to play as. It then returns p1 which is then passed and used through out the game.
+
+void preChoiceStatus(Player* p1)
+Called in Main.cpp and is only called prior the user specifying that they like which character they have selected. It prints out the stats of the character they have currently selected whenever they select a character to play until they say they like it. It is never called later on as showStatus is called in its place.
 
