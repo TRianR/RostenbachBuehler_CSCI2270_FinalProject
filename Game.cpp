@@ -99,33 +99,55 @@ void Game::changeRoom(Player* p1) {
     {
 		p1->location=p1->location->north;
 		cout<<p1->location->entMes<<endl;
+		if(p1->location->hasMon == true) {
+			end=doBattle(p1);
+		}
+		if(end==false)
+		{
+			printMenu(p1);
+		}
 	}
 	else if(direction=="S" || direction=="s")
     {
 		p1->location=p1->location->south;
 		cout<<p1->location->entMes<<endl;
+		if(p1->location->hasMon == true) {
+			end=doBattle(p1);
+		}
+		if(end==false)
+		{
+			printMenu(p1);
+		}
 	}
 	else if(direction=="E" || direction=="e")
     {
 		p1->location=p1->location->east;
 		cout<<p1->location->entMes<<endl;
+		if(p1->location->hasMon == true) {
+			end=doBattle(p1);
+		}
+		if(end==false)
+		{
+			printMenu(p1);
+		}
 	}
 	else if(direction == "W" || direction == "w")
     {
 		p1->location=p1->location->west;
 		cout<<p1->location->entMes<<endl;
+		if(p1->location->hasMon == true) {
+			end=doBattle(p1);
+		}
+		if(end==false)
+		{
+			printMenu(p1);
+		}
 	}
 	else
 	{
 		changeRoom(p1);
 	}
-	if(p1->location->hasMon == true) {
-       end=doBattle(p1);
-	}
-	if(end==false)
-	{
-		printMenu(p1);
-	}
+	
 }
 
 Player* Game::setPlayer(int charNum) {
