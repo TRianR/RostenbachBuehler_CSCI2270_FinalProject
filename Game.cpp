@@ -20,11 +20,7 @@ void Game::printMenu(Player* p1){
 	cout<<"2. Leave room"<<endl;
 	cout<<"3. Show player status"<<endl;
 	cout<<"4. Take potion"<<endl;
-<<<<<<< HEAD
 	cout<<"5. Quit"<<endl;
-=======
-	cout<<"5. Quit" << endl;
->>>>>>> 524ec136730883e6b0bc59f0a46e6c4904dd3f01
     cout << "========================================" << endl;
 	string option;
 	cin>>option;
@@ -113,18 +109,10 @@ void Game::changeRoom(Player* p1) {
     {
 		p1->location=p1->location->east;
 		cout<<p1->location->entMes<<endl;
-<<<<<<< HEAD
-=======
 	}
 	else if(direction == "W" || direction == "w")
     {
 		p1->location=p1->location->west;
-		cout<<p1->location->entMes<<endl;
->>>>>>> 524ec136730883e6b0bc59f0a46e6c4904dd3f01
-	}
-	else if( direction=="W" || direction=="w")
-    {
-		p1->location=p1->location->west;;
 		cout<<p1->location->entMes<<endl;
 	}
 	else
