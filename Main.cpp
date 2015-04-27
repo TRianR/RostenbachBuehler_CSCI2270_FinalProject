@@ -60,6 +60,21 @@ int main()
 			happy=false;
 		}
 	}
+	
+	cout<<"Three friends are walking down the road, they have their hoods and collars up against the wind."<<endl;
+	cout<<"The other two are sharing freindly banter, but you are quiet thinking about what you're about to do."<<endl;
+	cout<<"Once again you break your self-imposed silence, 'Are you sure that I have to do this?'"<<endl;
+	cout<<"'It was your dare, I told you to pick truth' comes from one of the others during a pause in their conversation."<<endl;
+	cout<<"An abondoned house looms in the moonlight. The roof colapsed in places, shutters askew or missing entirely."<<endl;
+	cout<<"It's not a comforting sight."<<endl;
+	cout<<"'What if it collapses on me?'"<<endl;
+	cout<<"'Then we leave you...'"<<endl;
+	cout<<"You shoot a glare at the two of them as they snicker, their faces partially hidden in shadow"<<endl;
+	cout<<"'It was only a joke, relax'"<<endl;
+	cout<<"It was a stupid dare to take, but this is what happens when you decide to step up"<<endl;
+	cout<<"You realize you've arrived at the first step on to the poarch"<<endl;
+	cout<<"You brace yourself and take the first step onto the poarch."<<endl;
+	
 	p1->location = root;
     G.startGame(p1);
 }
