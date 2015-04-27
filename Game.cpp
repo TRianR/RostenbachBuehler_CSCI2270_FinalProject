@@ -95,7 +95,7 @@ void Game::changeRoom(Player* p1) {
     cout << "========================================" << endl;
     string direction;
     cin>>direction;
-    if(direction=="N" || direction=="n" )
+    if(direction=="N" || direction=="n" && p1->location-> north != NULL)
     {
 		p1->location=p1->location->north;
 		cout<<p1->location->entMes<<endl;
@@ -107,7 +107,7 @@ void Game::changeRoom(Player* p1) {
 			printMenu(p1);
 		}
 	}
-	else if(direction=="S" || direction=="s")
+	else if(direction=="S" || direction=="s" && p1->location->south != NULL)
     {
 		p1->location=p1->location->south;
 		cout<<p1->location->entMes<<endl;
@@ -119,7 +119,7 @@ void Game::changeRoom(Player* p1) {
 			printMenu(p1);
 		}
 	}
-	else if(direction=="E" || direction=="e")
+	else if(direction=="E" || direction=="e" && p1->location->east != NULL)
     {
 		p1->location=p1->location->east;
 		cout<<p1->location->entMes<<endl;
@@ -131,7 +131,7 @@ void Game::changeRoom(Player* p1) {
 			printMenu(p1);
 		}
 	}
-	else if(direction == "W" || direction == "w")
+	else if(direction == "W" || direction == "w" && p1->location->west != NULL )
     {
 		p1->location=p1->location->west;
 		cout<<p1->location->entMes<<endl;
