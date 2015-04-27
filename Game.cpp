@@ -110,9 +110,15 @@ void Game::changeRoom(Player* p1) {
 		p1->location=p1->location->east;
 		cout<<p1->location->entMes<<endl;
 	}
+<<<<<<< HEAD
 	else if( direction=="W" || direction=="w")
     {
 		p1->location=p1->location->west;;
+=======
+	else if(direction == "W" || direction == "w")
+    {
+		p1->location=p1->location->west;
+>>>>>>> 6cb100cce2a7171fa98daedc42fcdf8a5bfc4071
 		cout<<p1->location->entMes<<endl;
 	}
 	else
