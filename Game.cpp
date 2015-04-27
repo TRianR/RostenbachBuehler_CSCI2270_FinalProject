@@ -20,12 +20,8 @@ void Game::printMenu(Player* p1){
 	cout<<"2. Leave room"<<endl;
 	cout<<"3. Show player status"<<endl;
 	cout<<"4. Take potion"<<endl;
-<<<<<<< HEAD
 	cout<<"5. Quit"<<endl;
-=======
-	cout<<"5. Quit" << endl;
     cout << "========================================" << endl;
->>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
 	string option;
 	cin>>option;
 	if(option=="1")
@@ -60,7 +56,6 @@ void Game::addWeapon(Player* p1){
     p1->attack = p1->attack + 10;
     cout << "You have picked up a  " << p1->location->weaponName << "!" << endl << "You increase your attack by 10!" << endl;
     p1->weaponName = p1->location->weaponName;
-    printMenu(p1);
 }
 
 void Game::searchRoom(Player* p1){
@@ -104,51 +99,25 @@ void Game::changeRoom(Player* p1) {
     {
 		p1->location=p1->location->north;
 		cout<<p1->location->entMes<<endl;
-<<<<<<< HEAD
-		
-=======
-        printMenu(p1);
->>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
 	}
 	else if(direction=="S" || direction=="s")
     {
 		p1->location=p1->location->south;
 		cout<<p1->location->entMes<<endl;
-<<<<<<< HEAD
-		
-=======
-        printMenu(p1);
->>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
 	}
 	else if(direction=="E" || direction=="e")
     {
 		p1->location=p1->location->east;
 		cout<<p1->location->entMes<<endl;
-<<<<<<< HEAD
-		
-=======
-		printMenu(p1);
-	}
-	else if(direction == "W" || direction == "w")
-    {
-		p1->location=p1->location->west;
-		cout<<p1->location->entMes<<endl;
-		printMenu(p1);
->>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
 	}
 	else if( direction=="W" || direction=="w")
     {
-<<<<<<< HEAD
 		p1->location=p1->location->west;;
 		cout<<p1->location->entMes<<endl;
-		
 	}
 	else
 	{
 		changeRoom(p1);
-=======
-        changeRoom(p1);
->>>>>>> 22b64163272cb0d684b88c8bc79a5748792bf5d9
 	}
 	if(p1->location->hasMon == true) {
        end=doBattle(p1);
@@ -166,6 +135,7 @@ Player* Game::setPlayer(int charNum) {
         // Football player
         p1->name = "Logan";
         p1->strength = 9;
+        p1->hitChance = 5;
         p1->dodge = 2;
         p1->health = 125;
         p1->location=NULL;
@@ -176,6 +146,7 @@ Player* Game::setPlayer(int charNum) {
         p1->name = "Kari";
         p1->strength = 5;
         p1->dodge = 6;
+        p1->hitChance = 4;
         p1->health = 75;
         p1->location=NULL;
         p1->weaponName= "Pepperspray! Hahaha just kidding!";
@@ -185,6 +156,7 @@ Player* Game::setPlayer(int charNum) {
         p1->name = "Jackson";
         p1->strength = 7;
         p1->dodge = 4;
+        p1->hitChance = 5;
         p1->health = 100;
         p1->location=NULL;
         p1->weaponName= "Oops, did you forget it at home again!?";
@@ -207,7 +179,7 @@ void Game::showStatus(Player* p1) {
     cout << "Room: " << p1->location->name << endl;
     cout << "Player Health: " << p1->health << endl;
     cout << "Attack Damage: " << p1->attack + p1->strength << endl;
-    cout << "Dodge Chance: " << p1->dodgeTrue << endl;
+    cout << "Dodge Chance: " << p1->dodge << endl;
     cout << "Hit Chance: " << p1->hitChance << endl;
     cout << "Number of Potions: " << p1->potions << endl;
     cout << "Weapon Name: " << p1->weaponName<< endl;
@@ -235,7 +207,7 @@ int Game::dealDamage(Player* p1, Monster* m1) {
 
 int Game::takeDamage(Player* p1, Monster* m1) {
     // Do you dodge or get hit?
-    if(HitOrMiss(p1->dodge) == false) {
+    if(HitOrMiss(p1->dodge) == true) {
         cout << "The enemy has attacked you for " << m1->MonAttack << endl;
         p1->health = p1->health - m1->MonAttack;
         cout<<"Your health is "<<p1->health<<endl;
@@ -280,7 +252,7 @@ Room* Game::makeMap()
 Monster* Game::MakeMonster(Player *p1) {
 	int attack=p1->attack+p1->strength;
 	Monster* m1= new Monster;
-    m1->MonAttack = (p1->health /3);
+    m1->MonAttack = (p1->health /4);
     m1->MonHealth = ( attack*3);
     return m1;
 }
@@ -291,10 +263,10 @@ void Game::startGame(Player* p1) {
     string input;
     cin >> input;
     p1->location = p1->location->east;
-    cout << p1->location->entMes << endl;
     for(int i = 0; i < 10; i++) {
         cout << "" << endl;
     }
+    cout << p1->location->entMes << endl;
     printMenu(p1);
 }
 
@@ -369,7 +341,7 @@ bool Game::doBattle(Player* p1)
 		cout<<endl;
 		cout<<"You feel a shake on your sholder, you realize you had dozed off."<<endl;
 		return true;
-		
+
 	}
 }
 
