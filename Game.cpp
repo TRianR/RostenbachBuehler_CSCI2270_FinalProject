@@ -15,11 +15,12 @@ Game::~Game()
 }
 
 void Game::printMenu(Player* p1){
+    if(p1->potions != 0){
     cout << "========================================" << endl;
 	cout<<"1. Search room"<<endl;
 	cout<<"2. Leave room"<<endl;
 	cout<<"3. Show player status"<<endl;
-	cout<<"4. Take potion"<<endl;
+    cout<<"4. Take potion"<<endl;
 	cout<<"5. Quit"<<endl;
     cout << "========================================" << endl;
 	string option;
@@ -50,6 +51,38 @@ void Game::printMenu(Player* p1){
 		cout<<"Please choose an option on the menu"<<endl;
 		printMenu(p1);
 	}
+    }
+    else{
+    cout << "========================================" << endl;
+	cout<<"1. Search room"<<endl;
+	cout<<"2. Leave room"<<endl;
+	cout<<"3. Show player status"<<endl;
+	cout<<"4. Quit"<<endl;
+    cout << "========================================" << endl;
+	string option;
+	cin>>option;
+	if(option=="1")
+	{
+		searchRoom(p1);
+	}
+	else if(option=="2")
+	{
+		changeRoom(p1);
+	}
+	else if(option=="3")
+	{
+		showStatus(p1);
+	}
+	else if(option=="4")
+	{
+		cout<<"Goodbye!"<<endl;
+	}
+	else
+	{
+		cout<<"Please choose an option on the menu"<<endl;
+		printMenu(p1);
+	}
+    }
 }
 
 void Game::addWeapon(Player* p1){
@@ -147,7 +180,7 @@ void Game::changeRoom(Player* p1) {
 	{
 		changeRoom(p1);
 	}
-	
+
 }
 
 Player* Game::setPlayer(int charNum) {
@@ -323,6 +356,7 @@ bool Game::doBattle(Player* p1)
 	Monster* m1= MakeMonster(p1);
 	while(m1->MonHealth>0 && p1->health>0)
     {
+        if(p1->potions !=0){
 		cout<<"1. Attack"<<endl;
 		cout<<"2. Take Potion"<<endl;
 		string option;
@@ -340,6 +374,20 @@ bool Game::doBattle(Player* p1)
 		{
 			takeDamage(p1, m1);
 		}
+        }
+        else{
+		cout<<"1. Attack"<<endl;
+		string option;
+		cin>>option;
+		if(option=="1")
+		{
+			dealDamage(p1,m1);
+		}
+		if(m1->MonHealth!=0)
+		{
+			takeDamage(p1, m1);
+		}
+        }
 	}
 	if(p1->health < 0)
 	{
